@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"name": "eureka",
+			"path": "..\\Projetos\\eureka"
+		},
+		{
+			"name": "gateway",
+			"path": "..\\Projetos\\gateway"
+		},
+		{
+			"name": "vendas",
+			"path": "..\\Projetos\\vendas"
+		},
+		{
+			"name": "produtos",
+			"path": "..\\Projetos\\produtos"
+		}
+	]
+}

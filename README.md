@@ -1,1 +1,1 @@
-# ProvaBackEnd-Final
+Nosso programa se baseia em cadastrar produtos e vendas, usando um  api rest full, sendo que o end point post e usado pra salvar os produtos , GEt usado para pegar os produtos solicitados seja todos eles ou um de sua escolha atraves do Id e tambem possui o PUT que é usado para alterar as informaçoes salvas no banco de dados.

@@ -4,12 +4,14 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+
 import com.produtos.produtos.Model.Produto;
 import com.produtos.produtos.Service.ProdutoServiceImpl;
 import com.produtos.produtos.View.Model.AtualizacaoDeEstoque;
 import com.produtos.produtos.View.Model.CadastroDeProdutoDTO;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("API/produto")
+@RequestMapping
 @RestController
 public class ProdutoController {
    @Autowired
@@ -37,12 +39,19 @@ public class ProdutoController {
          CadastroDeProdutoDTO c=CadastroDeProdutoDTO.from(m);
          return new ResponseEntity<>(c,HttpStatus.CREATED);
    }
-   @PutMapping("/{id}")
-   public Produto AtualizarEstoque(@PathVariable String id,@RequestBody AtualizacaoDeEstoque Atualizacao){
+   @PutMapping("/{id}/{Quantidadenova}")
+   public ResponseEntity<Produto> AtualizarEstoque(@PathVariable String id,@PathVariable int Quantidadenova){
         Produto l =servico.PegarPorId(id);
-        l.setEstoque(Atualizacao.getEstoque());
-       return l;
+        l=servico.AtualizarEstoque(id,Quantidadenova);
+        servico.Salvar(l);
+        return new ResponseEntity<>(l,HttpStatus.ACCEPTED);
+       
 
    }
-
+   @GetMapping("/{id}")
+   public ResponseEntity<Produto>BuscarProdutoPorId(@PathVariable String id){
+        Produto p=servico.PegarPorId(id);
+        return new ResponseEntity<>(p,HttpStatus.OK);
+   }
+   
 }

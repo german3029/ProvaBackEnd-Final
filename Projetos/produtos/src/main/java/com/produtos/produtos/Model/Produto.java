@@ -1,5 +1,7 @@
 package com.produtos.produtos.Model;
 
+
+
 import com.produtos.produtos.View.Model.CadastroDeProdutoDTO;
 
 import org.springframework.data.annotation.Id;
@@ -13,8 +15,9 @@ public class Produto {
     private String nome;
     private int estoque;
     
-    public Produto(String id, int valor, String nome, int estoque) {
-        this.id = id;
+    
+    public Produto(int valor, String nome, int estoque) {
+        
         this.valor = valor;
         this.nome = nome;
         this.estoque = estoque;
@@ -45,7 +48,7 @@ public class Produto {
     }
    
     public static Produto from(CadastroDeProdutoDTO m){
-        return new Produto(m.getId(),m.getValor(),m.getNome(),m.getEstoque());
+        return new Produto(m.getValor(),m.getNome(),m.getEstoque());
         
     }
 }

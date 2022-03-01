@@ -1,6 +1,6 @@
 package com.produtos.produtos.View.Model;
 
-import com.produtos.produtos.Model.Produto;
+
 
 public class AtualizacaoDeEstoque {
     
@@ -16,7 +16,4 @@ public void setEstoque(int estoque) {
     this.estoque = estoque;
 }
 
-public static AtualizacaoDeEstoque from(Produto m){
-    return new AtualizacaoDeEstoque(m.getEstoque());
-}
 }
